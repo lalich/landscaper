@@ -29,7 +29,7 @@ while landscaper_stats['tool'] == 'teeth' and not landscaper_stats['quit']:
   ## $5 scissor time  
     if (landscaper_stats['$$$'] == 5):
         print("You have enough money for a dental clean up and to buy some rusty scissors for $5, this will allow you to make $5 per day doing lawns. Would you like to upgrade?")
-    if (user_input == 'yes'):
+    if (user_input.lower() == 'yes'):
         landscaper_stats['tool'] = 'Rusties'
         landscaper_stats['dr'] = 5
         landscaper_stats['$$$'] = landscaper_stats['$$$']-5
@@ -43,7 +43,26 @@ while landscaper_stats['tool'] == 'Rusties' and not landscaper_stats['quit']:
     if (landscaper_stats['quit'] == True):
         print(f"Okay you quit and will have to live off of ${landscaper_stats['$$$']}, have a nice life")
         break
-    
+
+## ol timey-push mower
+    if (landscaper_stats['$$$'] == 25):
+        print("Yo, landScraper you now have enough money to buy a nice Timey-Push mower for $25! This will allow you to earn $50 a day doing the lawn. Would you like to upgrade?")
+        if (user_input.lower() == 'yes'):
+            landscaper_stats['tool'] = 'Timey'
+            landscaper_stats['$$$'] = landscaper_stats['$$$']-25
+            landscaper_stats['dr'] = 50
+while landscaper_stats['tool'] == 'Timey' and not landscaper_stats['quit']:
+    user_input = input(f"Hey Landscaper press 1 to cut the grass with {landscaper_stats['tool']} and earn that ${landscaper_stats['dr']}! or 2 to claim chaper 11")
+    if (user_input == '1'):
+        landscaper_stats['$$$'] +=50
+        print(f"Hey Homie, you now earned a total of ${landscaper_stats['$$$']} and are using the {landscaper_stats['tool']} to make a living")
+    if (user_input == '2'):
+        landscaper_stats['quit'] = True
+    if (landscaper_stats['quit'] == True):
+        print(f"Okay you quit and will have to live off of ${landscaper_stats['$$$']}, have a nice life")
+        break
+
+    ## Game winning $hot
     if landscaper_stats['$$$'] == 1000:
         landscaper_stats['$$$'] = 0
         print("Congratulations you can now get a professional education in your field of choice")
