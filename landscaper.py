@@ -80,12 +80,29 @@ while landscaper_stats['tool'] == 'EPM' and not landscaper_stats['quit']:
         print(f"Okie Dokie duoiippy, you quit and have ${landscaper_stats['$$$']} to make yo life work.. may I reccomend the YoLo APp!")
         break
 
+## hire dat team
+    if (landscaper_stats['$$$'] >= 500):
+        user_input = input("Hey EPM level scraper, you can now hire a team to work for you!!! If you invest $500, you will be able to earn $250 a day in your business! Would you like to scale?")
+        if (user_input.lower() == 'yes'):
+            landscaper_stats['tool'] = 'Dat Team'
+            landscaper_stats['dr'] = 250
+            landscaper_stats['$$$'] = landscaper_stats['$$$'] - 500
+while landscaper_stats['tool'] == 'Dat Team' and not landscaper_stats['quit']:
+    user_input = input(f"Hey Mogule, press 1 to send {landscaper_stats['tool']} out to earn ${landscaper_stats['dr']} for you, press 2 to deploy the exit parachute")
+    if (user_input == '1'):
+        landscaper_stats['$$$'] +=250
+        print(f"Whoa, Mogul, using {landscaper_stats['tool']} you now have ca$h money of ${landscaper_stats['$$$']}, you are well on your way to a stack at the casino of life!")
+    if (user_input == '2'):
+        landscaper_stats[quit] = True
+    if (landscaper_stats['quit'] == True):
+        print("You almost made it to the promise land, better luck next time!")
+        break
 
 
-    ## Game winning $hot
+## Game winning $hot
     if landscaper_stats['$$$'] == 1000:
-        landscaper_stats['$$$'] = 0
         print("Congratulations you can now get a professional education in your field of choice")
+        break
 
 
 
