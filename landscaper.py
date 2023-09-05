@@ -27,7 +27,7 @@ while landscaper_stats['tool'] == 'teeth' and not landscaper_stats['quit']:
         print(f"Okay you quit and will have to live off of ${landscaper_stats['$$$']}, have a nice life")
         break
   ## $5 scissor time  
-    if (landscaper_stats['$$$'] == 5):
+    if (landscaper_stats['$$$'] >= 5):
         print("You have enough money for a dental clean up and to buy some rusty scissors for $5, this will allow you to make $5 per day doing lawns. Would you like to upgrade?")
     if (user_input.lower() == 'yes'):
         landscaper_stats['tool'] = 'Rusties'
@@ -45,7 +45,7 @@ while landscaper_stats['tool'] == 'Rusties' and not landscaper_stats['quit']:
         break
 
 ## ol timey-push mower
-    if (landscaper_stats['$$$'] == 25):
+    if (landscaper_stats['$$$'] >= 25):
         print("Yo, landScraper you now have enough money to buy a nice Timey-Push mower for $25! This will allow you to earn $50 a day doing the lawn. Would you like to upgrade?")
         if (user_input.lower() == 'yes'):
             landscaper_stats['tool'] = 'Timey'
@@ -61,6 +61,26 @@ while landscaper_stats['tool'] == 'Timey' and not landscaper_stats['quit']:
     if (landscaper_stats['quit'] == True):
         print(f"Okay you quit and will have to live off of ${landscaper_stats['$$$']}, have a nice life")
         break
+
+## Fancy push mower time
+    if (landscaper_stats['$$$'] >= 250):
+        user_input = input("Yo Timey pusher you now can upgrade to a Fancy A$$ E-Push mower, it'll cost you $250 and allow you to make $100 per day. Do you want to upgrade?")
+        if (user_input.lower() == 'yes'):
+            landscaper_stats['tool'] = 'EPM'
+            landscaper_stats['dr'] = 100
+            landscaper_stats['$$$'] = landscaper_stats['$$$']-250
+while landscaper_stats['tool'] == 'EPM' and not landscaper_stats['quit']:
+    user_input = input(f"Hey Landscapie press 1 to cut the grass with {landscaper_stats['tool']} and earn ${landscaper_stats['dr']}, or press 2 to file your chapter 7")
+    if (user_input == '1'):
+        landscaper_stats['$$$'] +=100
+        print(f"Hey Homie, nice day at the office using dat {landscaper_stats['tool']}, you've now earned a current balance of ${landscaper_stats['$$$']}")
+    if (user_input == '2'):
+        landscaper_stats['quit'] = True
+    if (landscaper_stats['quit'] == True):
+        print(f"Okie Dokie duoiippy, you quit and have ${landscaper_stats['$$$']} to make yo life work.. may I reccomend the YoLo APp!")
+        break
+
+
 
     ## Game winning $hot
     if landscaper_stats['$$$'] == 1000:
